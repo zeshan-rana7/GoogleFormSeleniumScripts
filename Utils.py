@@ -3,7 +3,7 @@ import datetime
 import re
 now = datetime.datetime.now()
 Email = os.environ.get('GOOGLE_EMAIL', "zeeshan.rana@arbisoft.com")
-Password = os.environ.get('GOOGLE_PASSWORD', "test123")
+Password = os.environ.get('GOOGLE_PASSWORD', "test123test")
 CNIC = '3840261531647'
 phone_number = '03134147647'
 name = 'zeshan'
