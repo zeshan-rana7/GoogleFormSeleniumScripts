@@ -15,10 +15,15 @@ from FormLastPage import FormLastPage
 from CompareScore_Page import CompareScorePage
 from Utils import *
 import csv
+from pyvirtualdisplay import Display
+
 
 class GoogleFormTest(unittest.TestCase):
 
     def setUp(self):
+        self.display = Display(visible=0, size=(1024, 768))
+        self.display.start()
+
         self.driver = webdriver.Firefox()
         self.driver.maximize_window()
         self.url = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSfSGh4qzssK1gnZ6JEUe1D4E3lmGCelVD0VZgdHs_y7K_U7rA/viewform"
@@ -692,6 +697,8 @@ class GoogleFormTest(unittest.TestCase):
     #     self.form9.input_date_time(month, day, year, hour, minute, am_pm)
 
     def test_compare_score(self):
+
+
         self.login_page.Login(Email, Password)
         self.form1.fillForm1(CNIC, phone_number, Email, name)
         elem = self.form2.verify_page()
@@ -762,6 +769,7 @@ class GoogleFormTest(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
+        self.display.stop()
 
 if __name__ == "__main__":
     unittest.main()
